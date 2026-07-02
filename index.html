@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cal — an AtlasFlow Platform</title>
+  <meta name="description" content="Cal is an AtlasFlow platform that turns messy service requests into prioritized, dispatch-ready work." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="nav-wrap" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Cal home">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>
+          <strong>Cal</strong>
+          <small>an AtlasFlow Platform</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="nav-links" id="nav-links">
+        <a href="#viewer">Operator Viewer</a>
+        <a href="#proof">Proof</a>
+        <a href="#build">Build</a>
+        <a href="#case-study">Case Study</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-pad">
+      <div class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">AtlasFlow Local Operations</p>
+          <h1>Never let an urgent service request get buried.</h1>
+          <p class="hero-lede">Cal turns messy plumbing and field-service requests into prioritized, dispatch-ready records — so owners and dispatchers can see urgency, risk, and the next action before the workday gets away from them.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#viewer">View the operator demo</a>
+            <a class="btn secondary" href="#proof">See the working proof</a>
+          </div>
+          <div class="signal-strip" aria-label="Key outcomes">
+            <span><b>Raw intake</b> captured simply</span>
+            <span><b>AI triage</b> writes structured fields</span>
+            <span><b>Dispatch views</b> show what matters</span>
+          </div>
+        </div>
+
+        <div class="hero-card reveal delay-1" aria-label="Cal workflow summary card">
+          <div class="card-topline">
+            <span class="live-dot"></span>
+            <span>Live MVP pattern</span>
+          </div>
+          <div class="request-card urgent active-card">
+            <div class="card-row">
+              <span class="pill red">Red confidence</span>
+              <span class="pill dark">High priority</span>
+            </div>
+            <h2>Basement drain backup</h2>
+            <p>“Our main basement drain is backing up and water is coming up near the floor drain.”</p>
+            <div class="triage-grid">
+              <div><small>Job type</small><strong>Drain</strong></div>
+              <div><small>Next action</small><strong>Dispatch plumber immediately</strong></div>
+            </div>
+          </div>
+          <div class="mini-brief">
+            <small>Owner brief</small>
+            <p>Prioritize active backups and high-risk water issues before routine estimates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad slim" aria-label="Product framing">
+      <div class="section-heading reveal">
+        <p class="eyebrow">What Cal proves</p>
+        <h2>Clarity before dispatch.</h2>
+        <p>Cal is the field-service version of the AtlasFlow pattern: messy input becomes AI interpretation, structured data, human review, and a clear operational next action.</p>
+      </div>
+      <div class="question-grid">
+        <article class="question-card reveal">
+          <span>01</span>
+          <h3>Who is this for?</h3>
+          <p>Owners, dispatchers, office managers, and small service teams who need to triage inbound work without missing urgent risk.</p>
+        </article>
+        <article class="question-card reveal delay-1">
+          <span>02</span>
+          <h3>What problem are we solving?</h3>
+          <p>Service requests arrive through calls, forms, texts, and notes with inconsistent detail, unclear urgency, and customer risk buried in plain language.</p>
+        </article>
+        <article class="question-card reveal delay-2">
+          <span>03</span>
+          <h3>What outcome should improve?</h3>
+          <p>Dispatchers see the category, priority, confidence, summary, and next step faster — with owner attention focused on the jobs that can’t wait.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="viewer-section section-pad" id="viewer">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Mock Operator Viewer</p>
+        <h2>From messy request to dispatch decision.</h2>
+        <p>The replay below shows the operating view Cal is proving: intake comes in, AI triage is generated, and the request lands in the right dispatch queue.</p>
+      </div>
+
+      <div class="viewer-shell reveal">
+        <div class="viewer-header">
+          <div>
+            <strong>Cal Dispatch Console</strong>
+            <small>AI service request triage + owner attention</small>
+          </div>
+          <button class="replay-btn" type="button" id="replayBtn">Replay triage</button>
+        </div>
+
+        <div class="viewer-layout">
+          <aside class="queue-nav" aria-label="Dispatch queues">
+            <button class="queue active" data-filter="all"><span>All requests</span><b>8</b></button>
+            <button class="queue" data-filter="urgent"><span>Emergency / High</span><b>3</b></button>
+            <button class="queue" data-filter="review"><span>Needs review</span><b>3</b></button>
+            <button class="queue" data-filter="ready"><span>Ready for dispatch</span><b>5</b></button>
+          </aside>
+
+          <section class="dispatch-panel" aria-live="polite">
+            <div class="panel-toolbar">
+              <span class="status-chip">AI output fields visible</span>
+              <span class="status-chip muted">Sorted by risk</span>
+            </div>
+
+            <div class="job-stream" id="jobStream">
+              <article class="job-row urgent" data-type="urgent review">
+                <div>
+                  <span class="pill red">Red</span>
+                  <h3>Final Live Test</h3>
+                  <p>Basement drain backing up near floor drain. Customer needs immediate help.</p>
+                </div>
+                <dl>
+                  <div><dt>Job Type</dt><dd>Drain</dd></div>
+                  <div><dt>Priority</dt><dd>high</dd></div>
+                  <div><dt>Next Action</dt><dd>Dispatch a plumber immediately.</dd></div>
+                </dl>
+              </article>
+
+              <article class="job-row emergency" data-type="urgent review">
+                <div>
+                  <span class="pill red">Red</span>
+                  <h3>Mrs. Thompson</h3>
+                  <p>Water leaking from ceiling below upstairs bathroom after attempted shutoff.</p>
+                </div>
+                <dl>
+                  <div><dt>Job Type</dt><dd>Leak / Water Damage</dd></div>
+                  <div><dt>Priority</dt><dd>Emergency</dd></div>
+                  <div><dt>Next Action</dt><dd>Same-day emergency dispatch.</dd></div>
+                </dl>
+              </article>
+
+              <article class="job-row watch" data-type="urgent review ready">
+                <div>
+                  <span class="pill yellow">Yellow</span>
+                  <h3>Robert Jenkins</h3>
+                  <p>Water heater leaking. Customer available after lunch.</p>
+                </div>
+                <dl>
+                  <div><dt>Job Type</dt><dd>Water Heater</dd></div>
+                  <div><dt>Priority</dt><dd>high</dd></div>
+                  <div><dt>Next Action</dt><dd>Schedule same-day diagnosis.</dd></div>
+                </dl>
+              </article>
+
+              <article class="job-row routine" data-type="ready">
+                <div>
+                  <span class="pill green">Green</span>
+                  <h3>Amy Carter</h3>
+                  <p>Kitchen sink draining slowly. No active leak reported.</p>
+                </div>
+                <dl>
+                  <div><dt>Job Type</dt><dd>Drain</dd></div>
+                  <div><dt>Priority</dt><dd>Medium</dd></div>
+                  <div><dt>Next Action</dt><dd>Schedule next available visit.</dd></div>
+                </dl>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="proof">
+      <div class="proof-grid">
+        <div class="section-heading left reveal">
+          <p class="eyebrow">Working proof</p>
+          <h2>Airtable-native MVP evidence.</h2>
+          <p>The proof artifact shows the service request table after the AI workflow has written practical dispatch fields back into the operating record.</p>
+          <ul class="check-list">
+            <li>Job Type classification</li>
+            <li>Priority and RYG confidence</li>
+            <li>AI Summary and recommended next action</li>
+            <li>Operational views for review and dispatch</li>
+          </ul>
+        </div>
+        <figure class="proof-image reveal delay-1">
+          <img src="assets/airtable-ai-dispatch-proof.png" alt="Airtable proof showing Cal service requests with AI-generated job type, urgency, priority, RYG confidence, summary, and recommended next action." />
+          <figcaption>Final working Airtable proof: raw service requests enriched with AI dispatch fields.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section-pad build-section" id="build">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Build architecture</p>
+        <h2>Simple stack. Clear operating signal.</h2>
+        <p>The final Cal build keeps the stack intentionally lean. Airtable captures intake, stores data, runs the AI step, writes the structured output, and provides the operator views.</p>
+      </div>
+
+      <div class="stack-flow reveal">
+        <article>
+          <span>01</span>
+          <h3>Airtable Form</h3>
+          <p>Captures customer, phone, address, and raw service request.</p>
+        </article>
+        <div class="flow-arrow">→</div>
+        <article>
+          <span>02</span>
+          <h3>Airtable Table</h3>
+          <p>Creates the service request record and stores AI outputs.</p>
+        </article>
+        <div class="flow-arrow">→</div>
+        <article>
+          <span>03</span>
+          <h3>Airtable AI</h3>
+          <p>Generates structured fields: job type, priority, confidence, summary, action.</p>
+        </article>
+        <div class="flow-arrow">→</div>
+        <article>
+          <span>04</span>
+          <h3>Automation</h3>
+          <p>Writes AI output back into the same operating row.</p>
+        </article>
+        <div class="flow-arrow">→</div>
+        <article>
+          <span>05</span>
+          <h3>Views</h3>
+          <p>Organizes work into emergency, review, dispatch, and confidence queues.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-pad" id="case-study">
+      <div class="case-grid">
+        <article class="case-card reveal">
+          <p class="eyebrow">Business value</p>
+          <h2>Speed and clarity for small service teams.</h2>
+          <p>Cal reduces the mental triage load on dispatchers and gives owners a cleaner read on what deserves attention. It is not trying to be a full dispatch platform; it proves the workflow that turns operational noise into clear decisions.</p>
+        </article>
+        <article class="brief-card reveal delay-1">
+          <div class="brief-topline">
+            <span class="live-dot"></span>
+            <strong>Morning Brief sample</strong>
+          </div>
+          <h3>Today’s owner focus</h3>
+          <p>Start with active water and drain risk. Move high-priority same-day jobs before routine estimates. Review Red and Yellow confidence items before assigning techs.</p>
+          <div class="brief-metrics">
+            <div><strong>2</strong><small>High-risk jobs</small></div>
+            <div><strong>3</strong><small>Needs review</small></div>
+            <div><strong>5</strong><small>Ready to dispatch</small></div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Cal</strong>
+      <span>AtlasFlow Local Operations — formerly Trades MVP</span>
+    </div>
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
