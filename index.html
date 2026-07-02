@@ -9,6 +9,41 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Proof section polish: text above image, full-width proof artifact */
+    #proof .proof-grid {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 30px !important;
+      align-items: start !important;
+    }
+
+    #proof .section-heading.left {
+      max-width: 960px !important;
+    }
+
+    #proof .proof-image {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+      padding: 18px !important;
+      box-sizing: border-box !important;
+    }
+
+    #proof .proof-image img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      border-radius: 18px !important;
+    }
+
+    #proof .proof-image figcaption {
+      margin-top: 14px !important;
+    }
+  </style>
+
 </head>
 <body>
   <header class="site-header" id="top">
