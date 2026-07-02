@@ -312,9 +312,25 @@
       <strong>Cal</strong>
       <span>- An AtlasFlow Platform</span>
     </div>
-    <a href="#top">Back to top</a>
+    <a href="#top" class="back-to-top" aria-label="Back to top">Back to top</a>
   </footer>
 
   <script src="script.js"></script>
+
+  <script>
+    // Reliable footer back-to-top behavior
+    document.addEventListener("DOMContentLoaded", function () {
+      var backToTop = document.querySelector(".back-to-top");
+      if (backToTop) {
+        backToTop.addEventListener("click", function (event) {
+          event.preventDefault();
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          if (history.replaceState) {
+            history.replaceState(null, "", window.location.pathname + window.location.search);
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
